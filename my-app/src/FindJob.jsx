@@ -1,7 +1,15 @@
 import React from "react";
+import Card from "./card";
 
-function FindJob(){
-    return <h1>FindJob</h1>
+
+function FindJob(pro){
+ 
+    
+    return (
+
+        // <Card/>
+        <div>HI</div>
+    );
 }
 
 export default FindJob;
