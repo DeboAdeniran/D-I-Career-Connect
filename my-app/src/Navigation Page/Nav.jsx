@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import logo from './D&I white logo.svg';
-import settin from './settings_icon.svg';
-import notif from './notif_icon.svg';
+import logo from '../SVG Files/D&I white logo.svg';
+import settin from '../SVG Files/settings_icon.svg';
+import notif from '../SVG Files/notif_icon.svg';
 import { Link } from "react-router-dom";
 
 function Nav({ setJobs }) {
     const [query, setQuery] = useState("");
 
-    const fetchJobs = (query) => {
-        const url = `https://jsearch.p.rapidapi.com/search?query=${query}&page=1&num_pages=1&date_posted=all`;
+    useEffect(() => {
+        // Fetch random jobs initially
+        fetchRandomJobs();
+    }, []);
+
+    const fetchRandomJobs = () => {
+        const url = 'https://jsearch.p.rapidapi.com/search?query=random&page=1&num_pages=5&date_posted=all'; // Example URL for fetching random jobs
         const options = {
             method: 'GET',
             headers: {
@@ -36,11 +41,30 @@ function Nav({ setJobs }) {
         fetchJobs(query);
     };
 
+    const fetchJobs = (query) => {
+        const url = `https://jsearch.p.rapidapi.com/search?query=${query}&page=1&num_pages=1&date_posted=all`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'x-rapidapi-key': '6259e482e8msh660f33611f543dcp123727jsna812c36d2fc3',
+                'x-rapidapi-host': 'jsearch.p.rapidapi.com'
+            }
+        };
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                setJobs(data.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
     return (
         <div className='navbar'>
             <ul className='first_mid'>
                 <li><img src={logo} alt="" height="30" width="30" /></li>
-                <li>D&I</li>
             </ul>
             <ul className='mid_nav'>
                 <li>
@@ -71,8 +95,8 @@ function Nav({ setJobs }) {
             </div>
 
             <ul className='last_mid'>
-                <li><img src={settin} alt="" /></li>
-                <li><img src={notif} alt="" /></li>
+                <img className='navIconBtn' src={settin} alt="" />
+                <img className='navIconBtn' src={notif} alt="" />
             </ul>
         </div>
     );

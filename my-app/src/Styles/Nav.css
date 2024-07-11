@@ -1,9 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/orkney');
 *{
-  /* box-sizing: border-box; */
+  font-family: 'Orkney', sans-serif;
   
 }
 .navbar{
+    /* position: absolute;
+    top: 0;
+    width: 100%; */
     background-color: black;
     color: white;
     display: flex;
@@ -14,6 +17,7 @@
     padding-left: 5%;
     padding-right: 5%;
     border-bottom:1px solid #b1b1b1;
+    
   }
 
 .navbar ul li{
@@ -48,16 +52,6 @@
     border-bottom:2px solid #ffffff;
   }
 
-  .last_mid li{
-    display: flex;
-    justify-self: center;
-    border: 1px solid rgb(146, 145, 145);
-    border-radius: 50px;
-    height: 25px;
-    width: 25px;
-    align-items: center;
-    justify-content: center;
-    }
 
     .semi_function{
       border: 10px solid white;
@@ -77,9 +71,29 @@
       border: none;
       outline: none;
     }
-    .search button{
-      color: white;
-      background-color: black;
+    .search {
+      color: #cccccc;
+      background-color: #272727;
       padding: 6px 12px;
       border-radius: 10px;
+      transition: transform 0.1s, box-shadow 0.1s;
+      cursor: pointer;
+    }
+    .search:hover{
+      color: white;
+      background-color: black;
+    }
+    .search:active {
+      transform: scale(0.95);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      background-color: #000;
+    }
+    .navIconBtn{
+      border: 2px solid #ccc;  
+      padding: 5px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    .navIconBtn:hover{
+      border: 3px solid white;
     }

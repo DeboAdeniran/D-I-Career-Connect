@@ -1,0 +1,214 @@
+*{
+    box-sizing: border-box;
+}
+.dropdown{
+    width: 300px;
+    /* border: 5px solid black; */
+    font-size: 15px;
+    padding: 15px;
+    box-shadow: 5px 0px 2px rgb(135, 135, 135);
+
+}
+.grp{
+    margin-bottom: 10px;
+    
+}
+.filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter p, .filter img{
+    cursor: pointer;
+}
+#ddcont{
+    display: none;
+    height: 450px;
+    overflow-y: scroll;
+}
+#ddcont::-webkit-scrollbar {
+  width: 8px; 
+}
+#ddcont::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 10px; 
+}
+
+#ddcont::-webkit-scrollbar-thumb:hover {
+  background-color: #000; 
+}
+
+#ddcont::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+.dropdown #ddcont.show{
+    display: block;
+}
+
+.dropdown_p{
+    color: #a5a5a5;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wrapper input[type="checkbox"]{
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    border: 2px solid #4c4c4c9b;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.wrapper label{
+    color: #4c4c4c;
+    cursor: pointer;
+}
+
+.wrapper input[type="checkbox"]::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    font-weight: 900;
+    font-size: 15px;
+    color: white;
+    display: none;
+    border: none;
+}
+.wrapper input[type="checkbox"]:hover{
+    background-color: #a5a5a5;
+    border: none;
+}
+.wrapper input[type="checkbox"]:checked{
+    background-color: #51d7ff;
+    border: none;
+}
+.wrapper input[type="checkbox"]:checked::after{
+    display: block;
+    border: none;
+
+}
+
+                        /* FOR LOCATION */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); */
+/* ::selection{
+  color: #fff;
+  background: #4285f4;
+} */
+/* .location{
+  width: 370px;
+  margin: 85px auto 0;
+} */
+.location-btn, li{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.location-btn{
+  height: 30px;
+  padding: 0 20px;
+  background: #fff;
+  border-radius: 7px;
+  justify-content: space-between;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.location-content{
+  display: none;
+  padding: 20px;
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.location.active .location-content{
+  display: block;
+}
+.location-content .location_search{
+  position: relative;
+}
+.location_search i{
+  top: 50%;
+  left: 15px;
+  color: #999;
+  font-size: 15px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  position: absolute;
+
+  background-color: white;
+}
+.location_search input{
+  height: 35px;
+  width: 100%;
+  outline: none;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 0 20px 0 43px;
+  border: 1px solid #B3B3B3;
+}
+.location_search input:focus{
+  padding-left: 42px;
+  border: 2px solid #4285f4;
+}
+.location_search input::placeholder{
+  color: #bfbfbf;
+}
+.location-content .options{
+  margin-top: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 7px;
+}
+.options::-webkit-scrollbar{
+  width: 7px;
+}
+.options::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.options::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 25px;
+}
+.options::-webkit-scrollbar-thumb:hover{
+  background: #b3b3b3;
+}
+.options li{
+  height: 50px;
+  padding: 0 13px;
+  font-size: 15px;
+}
+.options li:hover, li.selected{
+  border-radius: 5px;
+  background: #f2f2f2;
+}
+.applyFunction {
+  padding: 6px 12px;
+  border-radius: 10px;
+  color: #ccc;
+  background-color: #272727;
+  transition: transform 0.1s, box-shadow 0.1s;
+  cursor: pointer;
+}
+.applyFunction:hover{
+  color: #e0e0e0;
+  background-color: #1c1c1c;
+}
+
+.applyFunction:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #000;
+  color: white;
+}
